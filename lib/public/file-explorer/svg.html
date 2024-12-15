@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #533061;
+        }
+
+        .cont.list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 8.8rem);
+            grid-template-rows: repeat(auto-fill, 8.8rem);
+            gap: 1rem;
+            padding: 2rem;
+            width: calc(100% - 4rem);
+        }
+
+        .list-grid div {
+            align-items: center;
+            background-color: #2b2b2b30;
+            border: 1px solid var(--light-soft);
+            border-radius: 7px;
+            display: flex;
+            grid-template-rows: 1fr;
+            justify-content: center;
+            transition: background-color var(--trs);
+            height: 8.8rem;
+            width: 8.8rem;
+            box-shadow: 0 0 10px 0px transparent;
+            transition: box-shadow .3s;
+            cursor: copy;
+        }
+
+        .list-grid div:hover {
+            box-shadow: 0 0 10px 0px white;
+            transition: box-shadow .3s;
+        }
+
+        .list-grid div:active {
+            box-shadow: 0 0 10px 0px greenyellow;
+            transition: box-shadow 0s;
+        }
+
+        .list-grid div svg {
+            height: 7rem;
+            margin: auto;
+            width: 7rem;
+        }
+
+        .list-grid div svg use {
+            --color1: #fff;
+            --color2: #ff00b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont list-grid">
+    </div>
+
+    <script src="/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="/file-explorer/svg.js"></script>
+
+    <script>
+        window.addEventListener("load", () => {
+            document.querySelector("body").style.height = window.innerHeight + "px";
+            let svg_list = document.querySelectorAll("#all-svgs symbol"), list = document.querySelector(".cont.list-grid");
+
+            for (let i = 0; i < svg_list.length; i++) addElement(i);
+
+            function addElement(i) {
+                let a = svg_list[i], elm = document.createElement("div");
+                if (typeof i !== "string") elm.innerHTML = `<svg${a.dataset?.dynamic ? " class=\"text\"" : ""}><use xlink:href="#${a.id}"></use></svg>`;
+                else elm.innerHTML = dynamicSVGFileText(i, "#149be6", "100");
+                list.appendChild(elm);
+            }
+        })
+
+        window.addEventListener("resize", () => {
+            document.querySelector("body").style.height = window.innerHeight + "px";
+        })
+
+        $(".list-grid").delegate("div", "click", (e) => {
+            navigator.clipboard.writeText(e.currentTarget.innerHTML);
+        })
+    </script>
+</body>
+
+</html>

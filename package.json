@@ -1,0 +1,22 @@
+{
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.10",
+        "electron": "^33.2.1",
+        "electron-builder": "^25.1.8",
+        "electron-updater": "^6.3.9",
+        "express": "^4.21.0",
+        "multer": "^1.4.5-lts.1",
+        "path": "^0.12.7",
+        "vhost": "^3.0.2",
+        "ws": "^8.18.0"
+    },
+    "name": "home-server",
+    "version": "0.0.1",
+    "description": "Still in development",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

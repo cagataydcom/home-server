@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[DEV] File Explorer</title>
+    <link href="/file-explorer/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="file-explorer" style="--height:300px;--width:700px;">
+        <div class="body">
+            <div class="top-header">
+                <a class="goback" href="#" title="Geri Dön" data-cookable="1" data-url="/">
+                    <div class="btns">
+                        <svg><use xlink:href="#svg-arrow-tail-bold"></use></svg>
+                    </div>
+                </a>
+                <a class="refresh" href="#" title="Yenile" data-cookable="1">
+                    <div class="btns">
+                        <svg><use xlink:href="#svg-refresh-bold"></use></svg>
+                    </div>
+                </a>
+                <div class="address">
+                    <input type="text" value="/">
+                </div>
+            </div>
+            <div class="main">
+                <div class="side a">
+                    <div class="cont">
+                        <a data-url="/" class="on" style="--path:0"><div><svg class="arr"><use xlink:href="#svg-arrow"></use></svg><svg><use xlink:href="#svg-computer"></use></svg><span>Bu Cihaz</span></div></a>
+                    </div>
+                    <div class="size-controller"></div>
+                </div>
+                <div class="side b" dropzone="true" aria-dropeffect="link">
+                    <div class="dragzone"><svg><use xlink:href="#svg-download"></use></svg></div>
+                    <div class="cont list-grid">
+                        <!--a href="#" contextmenu="false">
+                            <div class="item">
+                                <svg class="arr"><use xlink:href="#svg-folder"></use></svg>
+                                <span>Yeni Klasör</span>
+                            </div>
+                        </a-->
+                    </div>
+                    <div class="contextmenu" style="top:150px;left:550px;" data-query="">
+                        <a class="forfile" href="#" data-action="copy"><div><svg><use xlink:href="#svg-copy"></use></svg><span>Kopyala</span></div></a>
+                        <a class="forfile" href="#" data-action="paste"><div><svg><use xlink:href="#svg-paste"></use></svg><span>Yapıştır</span></div></a>
+                        <a href="#" data-action="copy-path"><div><svg><use xlink:href="#svg-path"></use></svg><span>Yolu Kopyala</span></div></a>
+                        <a class="forfile" href="#" data-action="download"><div><svg><use xlink:href="#svg-download"></use></svg><span>Cihaza İndir</span></div></a>
+                        <a class="forfile" href="#" data-action="details"><div><svg><use xlink:href="#svg-wrench"></use></svg><span>Özellikler</span></div></a>
+                    </div>
+                    <div class="size-controller"></div>
+                </div>
+                <div class="side c">
+                    <div class="cont">
+
+                    </div>
+                    <div class="size-controller"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+    <script src="/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="/file-explorer/svg.js"></script>
+    <script src="/file-explorer/file-handle.js"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>
