@@ -1,3 +1,16 @@
+@font-face {
+    font-family: OpenSans;
+    src: url(/font/OpenSans.ttf);
+}
+
+@font-face {
+    font-family: OpenSans-Italic;
+    src: url(/font/OpenSans-Italic.ttf);
+}
+
+
+
+
 :root {
     --dark: #191919;
     --dark-soft: #19191920;
@@ -5,10 +18,10 @@
     --gray-soft: #44444420;
     --light: #ffffff;
     --light-soft: #ffffff20;
+    --light-secondary: #bbbbbb;
+    --light-secondary-soft: #bbbbbb20;
     --theme: #ff00b3;
     --theme-soft: #ff00b320;
-    --trs: .3s;
-
 }
 
 * {
@@ -21,6 +34,7 @@ body {
     background-color: var(--dark);
     color: var(--light);
     font-family: Arial, Helvetica, sans-serif;
+    --trs: .3s;
 }
 
 .d-flex {
@@ -40,6 +54,7 @@ body {
     height: calc(var(--height) - 2px);
     width: calc(var(--width) - 2px);
     scrollbar-gutter: stable;
+    font-family: OpenSans;
 }
 
 .file-explorer .body {
@@ -59,9 +74,9 @@ body {
 .file-explorer .top-header a {
     color: var(--light);
     text-decoration: unset;
-    margin: 5px;
-    height: 30px;
-    width: 30px;
+    margin: auto 5px;
+    height: 100%;
+    width: min-content;
 }
 
 .file-explorer .top-header svg {
@@ -92,11 +107,15 @@ body {
 
 .file-explorer .top-header svg {
     --color1: #fff;
+    --color2: var(--theme);
 }
 
 .file-explorer .top-header a.refresh svg {
     transform: rotateZ(0deg);
+}
 
+.file-explorer .top-header a.upload svg {
+    transform: rotateZ(180deg);
 }
 
 .file-explorer .top-header a.goback.cook .btns {
@@ -197,6 +216,43 @@ body {
 
 .file-explorer .top-header .address.focus input {
     color: var(--light);
+}
+
+.file-explorer .body.lg-head {
+    height: calc(100% - 60px);
+}
+
+.file-explorer .lg-head .top-header {
+    height: 60px;
+}
+
+.file-explorer .lg-head .top-header .btns {
+    height: 50px;
+    width: 50px;
+}
+
+.file-explorer .lg-head .top-header svg {
+    height: 30px;
+    width: 30px;
+}
+
+.file-explorer .lg-head .top-header .address {
+    height: 50px;
+    margin: 5px;
+}
+
+.file-explorer .lg-head .top-header .address span {
+    font-size: 20px;
+    line-height: 20px;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.file-explorer .lg-head .top-header .address input {
+    height: 50px;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0 15px;
 }
 
 .file-explorer .main {
@@ -585,4 +641,182 @@ body {
 .file-explorer .main.dragging .side.b .cont,
 .file-explorer .main.dragging .side.b .contextmenu {
     pointer-events: none;
+}
+
+.fe-tooltip {
+    --bs-tooltip-bg: var(--theme);
+    --bs-tooltip-color: var(--light);
+}
+
+
+.file-explorer .tab {
+    background-color: #00000091;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: opacity var(--trs);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.file-explorer .tab.active {
+    pointer-events: all;
+    transition: opacity var(--trs);
+    opacity: 1;
+}
+
+.file-explorer .tab>.inner {
+    box-shadow: 0 4px 7px 0 black, inset 0 0 5px 0 var(--light-soft);
+    transition: transform var(--trs);
+    background-color: var(--dark);
+    padding: 4.5rem 1rem 1rem 1rem;
+    transform: translateY(500%);
+    height: min-content;
+    border-radius: 7px;
+    position: relative;
+    min-width: 400px;
+    min-height: 10%;
+    max-width: 80%;
+    width: 50%;
+}
+
+.file-explorer .tab.active>.inner {
+    transition: transform var(--trs) calc(var(--trs) / 2);
+    transform: translateY(0%);
+}
+
+.file-explorer .tab>.inner::before {
+    content: attr(data-title);
+    color: var(--light);
+    font-size: 2rem;
+    text-transform: uppercase;
+    left: 4rem;
+    top: .8rem;
+    font-weight: 900;
+    position: absolute;
+    text-shadow: -2px 2px 2px var(--theme);
+}
+
+.file-explorer .tab>.inner::after {
+    content: "";
+    width: calc(100% - 2rem);
+    left: 1rem;
+    position: absolute;
+    top: 4rem;
+    border-bottom: 1px solid var(--light-soft);
+}
+
+.file-explorer .tab>.inner .close {
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1rem;
+}
+
+.file-explorer .tab>.inner .close:hover {
+    transition: background-color var(--trs), opacity var(--trs);
+    background-color: #00000030;
+    opacity: 1;
+}
+
+.file-explorer .tab>.inner .close svg {
+    transition: opacity var(--trs);
+    --color1: var(--theme);
+    height: 1.4rem;
+    width: 1.4rem;
+    opacity: .6;
+}
+
+.file-explorer .tab>.inner .close:hover svg {
+    transition: opacity var(--trs);
+    opacity: 1;
+}
+
+.file-explorer .tab>.inner span {
+    display: block;
+    color: var(--light-secondary);
+    font-size: 1.2rem;
+    line-height: 1.1rem;
+    margin: 0 .5rem;
+    font-weight: 100;
+    font-family: OpenSans;
+}
+
+.file-explorer .tab>.inner span.title {
+    font-weight: 900;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    margin-left: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.file-explorer .tab>.inner input[type=checkbox]{
+    height: 25px;
+    width: 50px;
+}
+.file-explorer .tab>.inner input, .file-explorer .tab>.inner .text-input input {
+    --bs-border-color: var(--theme);
+    --bs-form-check-bg: var(var(--dark-soft));
+    cursor: pointer;
+}
+
+.file-explorer .tab>.inner input[type=checkbox]:checked {
+    background-color: var(--theme);
+    border-color: var(--theme);
+}
+
+.file-explorer .tab>.inner input[type=checkbox]:focus, .file-explorer .tab>.inner .text-input input:focus {
+    border-color: var(--theme);
+    box-shadow: 0 0 0 .25rem var(--theme-soft);
+}
+
+.file-explorer .tab>.inner .line {
+    background-color: #ffffff10;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.file-explorer .tab>.inner .line:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.file-explorer .tab>.inner .text-input {
+    position: relative;
+    width: 10%;
+}
+
+.file-explorer .tab>.inner .text-input label {
+    position: absolute;
+    right: 0;
+    top: calc(0% - .8rem);
+    color: var(--light);
+    font-size: .8rem;
+}
+
+
+code {
+    color: var(--theme);
+    background-color: var(--dark);
+    font-family: monospace;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+
+.file-explorer .tab>.inner span code {
+    font-size: 1rem;
 }

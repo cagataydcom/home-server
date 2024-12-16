@@ -5,26 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[DEV] File Explorer</title>
+    <link href="/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/file-explorer/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="file-explorer" style="--height:300px;--width:700px;">
-        <div class="body">
+        <div class="body lg-head">
             <div class="top-header">
-                <a class="goback" href="#" title="Geri Dön" data-cookable="1" data-url="/">
-                    <div class="btns">
-                        <svg><use xlink:href="#svg-arrow-tail-bold"></use></svg>
-                    </div>
-                </a>
-                <a class="refresh" href="#" title="Yenile" data-cookable="1">
-                    <div class="btns">
-                        <svg><use xlink:href="#svg-refresh-bold"></use></svg>
-                    </div>
-                </a>
-                <div class="address">
-                    <input type="text" value="/">
-                </div>
+                <a class="goback" href="#" data-cookable="1" data-url="/" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Üst Sayfaya Git"><div class="btns"><svg><use xlink:href="#svg-arrow-tail-bold"></use></svg></div></a>
+                <a class="home" href="#" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Ana Sayfa"><div class="btns"><svg><use xlink:href="#svg-home"></use></svg></div></a>
+                <a class="refresh" href="#" data-cookable="1" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="İçeriği Yenile"><div class="btns"><svg><use xlink:href="#svg-refresh-bold"></use></svg></div></a>
+                <div class="address"><input type="text" value="/"></div>
+                <a class="upload" href="#" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Bu Konuma <b>Dosya Yükle</b>"><div class="btns"><svg><use xlink:href="#svg-download"></use></svg></div></a>
+                <a class="settings" data-tab="settings" href="#" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Ayarlar"><div class="btns"><svg><use xlink:href="#svg-cog"></use></svg></div></a>
             </div>
             <div class="main">
                 <div class="side a">
@@ -35,14 +29,7 @@
                 </div>
                 <div class="side b" dropzone="true" aria-dropeffect="link">
                     <div class="dragzone"><svg><use xlink:href="#svg-download"></use></svg></div>
-                    <div class="cont list-grid">
-                        <!--a href="#" contextmenu="false">
-                            <div class="item">
-                                <svg class="arr"><use xlink:href="#svg-folder"></use></svg>
-                                <span>Yeni Klasör</span>
-                            </div>
-                        </a-->
-                    </div>
+                    <div class="cont list-grid"></div>
                     <div class="contextmenu" style="top:150px;left:550px;" data-query="">
                         <a class="forfile" href="#" data-action="copy"><div><svg><use xlink:href="#svg-copy"></use></svg><span>Kopyala</span></div></a>
                         <a class="forfile" href="#" data-action="paste"><div><svg><use xlink:href="#svg-paste"></use></svg><span>Yapıştır</span></div></a>
@@ -52,11 +39,48 @@
                     </div>
                     <div class="size-controller"></div>
                 </div>
-                <div class="side c">
-                    <div class="cont">
-
+                <div class="side c"><div class="cont"></div><div class="size-controller"></div></div>
+            </div>
+        </div>
+        <div class="tab" data-tab="settings">
+            <div class="inner" data-title="Ayarlar">
+                <a class="close"><svg><use xlink:href="#svg-times-bold"></use></svg></a>
+                <div class="line d-flex justify-content-between">
+                    <div class="d-block">
+                        <span class="title" data-lang="lang.performance">Performansı Optimize Et</span>
+                        <span class="text" data-lang="lang.performance.desc">Bu ayar etkinleştirildiğinde animasyonlar devre dışı bırakılarak performans artırılır. Kod parçası <code>data-cookable="1"</code> devre dışı kalır.</span>
                     </div>
-                    <div class="size-controller"></div>
+                    <div class="form-switch my-auto"><input class="form-check-input" type="checkbox" role="switch" id="settings_performance" name="performance"></div>
+                </div>
+                <div class="line d-flex justify-content-between">
+                    <div class="d-block">
+                        <span class="title" data-lang="lang.performance">Yükleme</span>
+                        <span class="text" data-lang="lang.performance.desc">Bu ayar, dosyanın yüklenirken parçalara bölünecek boyutunu belirler.</span>
+                    </div>
+                    <div class="d-flex text-input">
+                        <label for="settings_warn_mb">KB</label>
+                        <input type="number" class="my-auto form-control form-control-sm" id="settings_warn_mb" value="1024" name="chunkSize" required> 
+                    </div>
+                </div>
+                <div class="line d-flex justify-content-between">
+                    <div class="d-block">
+                        <span class="title" data-lang="lang.performance">Favori Konum</span>
+                        <span class="text" data-lang="lang.performance.desc">Bu ayar, ilk başlangıçta hangi dizinin yükleneceğini belirler</span>
+                    </div>
+                    <div class="d-flex text-input">
+                        <label for="settings_default_path">Path</label>
+                        <input type="text" class="my-auto form-control form-control-sm" id="settings_default_path" value="/" name="defPath" required> 
+                    </div>
+                </div>
+                <div class="line d-flex justify-content-between">
+                    <div class="d-block">
+                        <span class="title" data-lang="lang.performance">Animasyon Süresi</span>
+                        <span class="text" data-lang="lang.performance.desc">Bu ayar, sayfadaki gerçekleşen animasyonların süresini ayarlar.</span>
+                    </div>
+                    <div class="d-flex text-input">
+                        <label for="settings_default_path">MS</label>
+                        <input type="number" class="my-auto form-control form-control-sm" id="settings_default_path" value="300" name="transition" required> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,7 +88,9 @@
 
     <script src="/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+    <script src="/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/file-explorer/svg.js"></script>
     <script src="/file-explorer/file-handle.js"></script>
     <script>
