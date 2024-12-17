@@ -13,9 +13,9 @@
     <div class="file-explorer" style="--height:300px;--width:700px;">
         <div class="body lg-head">
             <div class="top-header">
-                <a class="goback" href="#" data-cookable="1" data-url="/" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Üst Sayfaya Git"><div class="btns"><svg><use xlink:href="#svg-arrow-tail-bold"></use></svg></div></a>
-                <a class="home" href="#" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Ana Sayfa"><div class="btns"><svg><use xlink:href="#svg-home"></use></svg></div></a>
-                <a class="refresh" href="#" data-cookable="1" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="İçeriği Yenile"><div class="btns"><svg><use xlink:href="#svg-refresh-bold"></use></svg></div></a>
+                <a class="goback wforurl" href="#" data-cookable="1" data-url="/" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Üst Sayfaya Git"><div class="btns"><svg><use xlink:href="#svg-arrow-tail-bold"></use></svg></div></a>
+                <a class="home wforurl" href="#" data-url="/" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Ana Sayfa"><div class="btns"><svg><use xlink:href="#svg-home"></use></svg></div></a>
+                <a class="refresh wforurl" href="#" data-cookable="1" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="İçeriği Yenile"><div class="btns"><svg><use xlink:href="#svg-refresh-bold"></use></svg></div></a>
                 <div class="address"><input type="text" value="/"></div>
                 <a class="upload" href="#" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="Bu Konuma <b>Dosya Yükle</b>"><div class="btns"><svg><use xlink:href="#svg-download"></use></svg></div></a>
                 <a class="settings" data-tab="settings" href="#" data-bs-placement="bottom" data-bs-custom-class="fe-tooltip" data-bs-toggle="tooltip" data-bs-title="Ayarlar"><div class="btns"><svg><use xlink:href="#svg-cog"></use></svg></div></a>
@@ -24,12 +24,29 @@
                 <div class="side a">
                     <div class="cont">
                         <a data-url="/" class="on" style="--path:0"><div><svg class="arr"><use xlink:href="#svg-arrow"></use></svg><svg><use xlink:href="#svg-computer"></use></svg><span>Bu Cihaz</span></div></a>
+                        <a class="skeleton"><div></div></a>
+                        <a class="skeleton"><div></div></a>
+                        <a class="skeleton"><div></div></a>
+                        <a class="skeleton"><div></div></a>
+                        <a class="skeleton"><div></div></a>
+                        <a class="skeleton"><div></div></a>
+                        <a class="skeleton"><div></div></a>
+                        <a class="skeleton"><div></div></a>
                     </div>
                     <div class="size-controller"></div>
                 </div>
                 <div class="side b" dropzone="true" aria-dropeffect="link">
                     <div class="dragzone"><svg><use xlink:href="#svg-download"></use></svg></div>
-                    <div class="cont list-grid"></div>
+                    <div class="cont list-grid">
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                        <a class="skeleton"><div class="item"><svg></svg><span>...</span></div></a>
+                    </div>
                     <div class="contextmenu" style="top:150px;left:550px;" data-query="">
                         <a class="forfile" href="#" data-action="copy"><div><svg><use xlink:href="#svg-copy"></use></svg><span>Kopyala</span></div></a>
                         <a class="forfile" href="#" data-action="paste"><div><svg><use xlink:href="#svg-paste"></use></svg><span>Yapıştır</span></div></a>
@@ -39,7 +56,7 @@
                     </div>
                     <div class="size-controller"></div>
                 </div>
-                <div class="side c"><div class="cont"></div><div class="size-controller"></div></div>
+                <!--div class="side c"><div class="cont"></div><div class="size-controller"></div></div-->
             </div>
         </div>
         <div class="tab" data-tab="settings">

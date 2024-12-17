@@ -403,6 +403,13 @@ body {
     width: 1rem;
 }
 
+.file-explorer .main .side.a a.skeleton,
+.file-explorer .main .side.a a.skeleton div {
+    height: 40px;
+    width: 100%;
+    display: flex;
+}
+
 .file-explorer .main .side.a .child-container {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     transition: all .3s;
@@ -762,11 +769,13 @@ body {
     margin-bottom: .5rem;
 }
 
-.file-explorer .tab>.inner input[type=checkbox]{
+.file-explorer .tab>.inner input[type=checkbox] {
     height: 25px;
     width: 50px;
 }
-.file-explorer .tab>.inner input, .file-explorer .tab>.inner .text-input input {
+
+.file-explorer .tab>.inner input,
+.file-explorer .tab>.inner .text-input input {
     --bs-border-color: var(--theme);
     --bs-form-check-bg: var(var(--dark-soft));
     cursor: pointer;
@@ -777,7 +786,8 @@ body {
     border-color: var(--theme);
 }
 
-.file-explorer .tab>.inner input[type=checkbox]:focus, .file-explorer .tab>.inner .text-input input:focus {
+.file-explorer .tab>.inner input[type=checkbox]:focus,
+.file-explorer .tab>.inner .text-input input:focus {
     border-color: var(--theme);
     box-shadow: 0 0 0 .25rem var(--theme-soft);
 }
@@ -819,4 +829,72 @@ code {
 
 .file-explorer .tab>.inner span code {
     font-size: 1rem;
+}
+
+
+.file-explorer a.skeleton div {
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.file-explorer a.skeleton div::after {
+    background: linear-gradient(130deg, transparent 0%, rgba(211, 211, 211, 0.7) 50%, transparent 100%);
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    animation: skeleton_loading 1.5s infinite;
+}
+
+.file-explorer a.skeleton:nth-child(1) div::after {
+    animation-delay: .1s;
+}
+
+.file-explorer a.skeleton:nth-child(2) div::after {
+    animation-delay: .2s;
+}
+
+.file-explorer a.skeleton:nth-child(3) div::after {
+    animation-delay: .3s;
+}
+
+.file-explorer a.skeleton:nth-child(4) div::after {
+    animation-delay: .4s;
+}
+
+.file-explorer a.skeleton:nth-child(5) div::after {
+    animation-delay: .5s;
+}
+
+.file-explorer a.skeleton:nth-child(6) div::after {
+    animation-delay: .6s;
+}
+
+.file-explorer a.skeleton:nth-child(7) div::after {
+    animation-delay: .7s;
+}
+
+.file-explorer a.skeleton:nth-child(8) div::after {
+    animation-delay: .8s;
+}
+
+.file-explorer a.skeleton:nth-child(9) div::after {
+    animation-delay: .9s;
+}
+
+@keyframes skeleton_loading {
+
+    0% {
+        top: -300%;
+        left: -300%;
+    }
+
+    100% {
+        top: 300%;
+        left: 300%;
+    }
 }
