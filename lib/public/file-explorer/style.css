@@ -21,7 +21,7 @@
     --light-secondary: #bbbbbb;
     --light-secondary-soft: #bbbbbb20;
     --theme: #ff00b3;
-    --theme-soft: #ff00b320;
+    --theme-soft: #ff00b350;
 }
 
 * {
@@ -119,7 +119,7 @@ body {
 }
 
 .file-explorer .top-header a.goback.cook .btns {
-    transition: all var(--trs);
+    transition: var(--trs);
     position: relative;
 }
 
@@ -412,7 +412,7 @@ body {
 
 .file-explorer .main .side.a .child-container {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transition: all .3s;
+    transition: height 0s var(--trs), clip-path var(--trs);
     display: block;
     height: 0;
 }
@@ -424,7 +424,7 @@ body {
 
 .file-explorer .main .side.a a.on>.child-container {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    transition: height var(--trs) clip-path var(--trs);
+    transition: height var(--trs), clip-path var(--trs);
     height: auto;
 }
 
@@ -770,16 +770,36 @@ body {
 }
 
 .file-explorer .tab>.inner input[type=checkbox] {
-    height: 25px;
+    height: 30px;
     width: 50px;
+    transform: rotateZ(-90deg);
+}
+.file-explorer .tab>.inner select{
+    height: 31px;
+    width: 90px;
+    font-size: .9rem;
+    line-height: .9rem;
 }
 
+.file-explorer .tab>.inner .text-input .file-explorer .tab>.inner input,
 .file-explorer .tab>.inner input,
-.file-explorer .tab>.inner .text-input input {
+.file-explorer .tab>.inner select,
+.file-explorer .tab>.inner option {
     --bs-border-color: var(--theme);
     --bs-form-check-bg: var(var(--dark-soft));
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
+
+.file-explorer .tab>.inner option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--theme-soft);
+}
+
 
 .file-explorer .tab>.inner input[type=checkbox]:checked {
     background-color: var(--theme);
@@ -787,7 +807,8 @@ body {
 }
 
 .file-explorer .tab>.inner input[type=checkbox]:focus,
-.file-explorer .tab>.inner .text-input input:focus {
+.file-explorer .tab>.inner input:focus,
+.file-explorer .tab>.inner select:focus {
     border-color: var(--theme);
     box-shadow: 0 0 0 .25rem var(--theme-soft);
 }
@@ -841,13 +862,14 @@ code {
 
 .file-explorer a.skeleton div::after {
     background: linear-gradient(130deg, transparent 0%, rgba(211, 211, 211, 0.7) 50%, transparent 100%);
+    border-radius: 20%;
     content: "";
     position: absolute;
     top: -100%;
     left: -100%;
     width: 300%;
     height: 300%;
-    animation: skeleton_loading 1.5s infinite;
+    animation: skeleton_loading calc(var(--trs) * 5) infinite;
 }
 
 .file-explorer a.skeleton:nth-child(1) div::after {

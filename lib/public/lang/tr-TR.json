@@ -1,0 +1,37 @@
+{
+    "name": "Dosya Yöneticisi",
+    "con_try": "Bağlantı Deneniyor...",
+    "con_suc": "Bağlantı Başarılı.",
+    "con_los": "Bağlantı Kesildi. Tekrar Denenecek...",
+    "con_clo": "Bağlantı Sonlandırıldı.",
+
+
+
+    "goback": "Geri Git",
+    "mainpage": "Ana Sayfa",
+    "refresh_index": "İçeriği Yenile",
+    "upload_here": "Bu Konuma <b>Dosya Yükle</b>",
+    "settings": "Ayarlar",
+    "this_device": "Bu Cihaz",
+    "copy": "Kopyala",
+    "paste": "Yapıştır",
+    "copy-path": "Yolu Kopyala",
+    "download_to_device": "Cihaza İndir",
+    "details": "Özellikler",
+
+    "set.perf": "Performansı Optimize Et",
+    "set.perf.desc": "Bu ayar etkinleştirildiğinde animasyonlar devre dışı bırakılarak performans artırılır. Kod parçası <code>data-cookable=\"1\"</code> devre dışı kalır. Animasyon süresi ise <code>0s</code> olarak ayarlanır.",
+
+    "set.chunk": "Parça Boyutu",
+    "set.chunk.desc": "Bu ayar, dosyanın yüklenirken parçalara bölünecek boyutunu belirler.",
+
+    "set.path": "Favori Konum",
+    "set.path.short": "Adres",
+    "set.path.desc": "Bu ayar, ilk başlangıçta hangi dizinin yükleneceğini belirler",
+
+    "set.animtime": "Animasyon Süresi",
+    "set.animtime.desc": "Bu ayar, sayfadaki gerçekleşen animasyonların süresini ayarlar.",
+
+    "set.lang": "Tercih Edilen Dil",
+    "set.lang.desc": "Bu ayar, sayfadaki dili değiştirir."
+}
