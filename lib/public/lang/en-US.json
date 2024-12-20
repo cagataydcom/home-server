@@ -1,0 +1,35 @@
+{
+    "name": "File Explorer",
+    "con_try": "Connecting...",
+    "con_suc": "Connection Successful.",
+    "con_los": "Connection Lost. Retrying...",
+    "con_clo": "Connection Closed.",
+
+    "goback": "Go Back",
+    "mainpage": "Home Page",
+    "refresh_index": "Refresh Content",
+    "upload_here": "<b>Upload File</b> Here",
+    "settings": "Settings",
+    "this_device": "This Device",
+    "copy": "Copy",
+    "paste": "Paste",
+    "copy-path": "Copy Path",
+    "download_to_device": "Download to Device",
+    "details": "Properties",
+
+    "set.perf": "Optimize Performance",
+    "set.perf.desc": "When enabled, animations are disabled to improve performance. The code snippet <code>data-cookable=\"1\"</code> is disabled. The animation duration is set to <code>0s</code>.",
+
+    "set.chunk": "Chunk Size",
+    "set.chunk.desc": "This setting determines the size into which the file will be divided during upload.",
+
+    "set.path": "Favorite Location",
+    "set.path.short": "Path",
+    "set.path.desc": "This setting determines which directory will be loaded at startup.",
+
+    "set.animtime": "Animation Duration",
+    "set.animtime.desc": "This setting adjusts the duration of animations on the page.",
+
+    "set.lang": "Preferred Language",
+    "set.lang.desc": "This setting changes the language of the page."
+}
