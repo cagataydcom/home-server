@@ -15,8 +15,6 @@
     "this_device": "Bu Cihaz",
     "copy": "Kopyala",
     "paste": "Yapıştır",
-    "copy-path": "Yolu Kopyala",
-    "download_to_device": "Cihaza İndir",
     "details": "Özellikler",
 
     "set.perf": "Performansı Optimize Et",
@@ -33,5 +31,17 @@
     "set.animtime.desc": "Bu ayar, sayfadaki gerçekleşen animasyonların süresini ayarlar.",
 
     "set.lang": "Tercih Edilen Dil",
-    "set.lang.desc": "Bu ayar, sayfadaki dili değiştirir."
+    "set.lang.desc": "Bu ayar, sayfadaki dili değiştirir.",
+
+    "contmenu.newfolder": "Yeni Klasör",
+    "contmenu.rename": "Yeniden Adlandır",
+    "contmenu.refresh": "Sayfayı Yenile",
+    "contmenu.copy.path": "Yolu Kopyala",
+    "contmenu.copy.path.page": "Sayfa Yolunu Kopyala",
+    "contmenu.download": "Dosyayı İndir",
+    "contmenu.trash": "Sil",
+
+
+    "dragzone.drophereorclick": "<b>Dosyalarını buraya bırak!</b><br>veya<br><b>Tıkla ve Seç!</b>"
+    
 }
